@@ -6,7 +6,8 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const Service = () => {
+const Service = (props) => {
+    const {name, description, img} = props.service;
     return (
         <Grid item xs={4} sm={4} md={4}>
             <Card sx={{ minWidth: 275 }}>
@@ -15,15 +16,10 @@ const Service = () => {
                 Word of the Day
                 </Typography>
                 <Typography variant="h5" component="div">
-                benevolent
-                </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
+                {name}
                 </Typography>
                 <Typography variant="body2">
-                well meaning and kindly.
-                <br />
-                {'"a benevolent smile"'}
+                {description}
                 </Typography>
             </CardContent>
             <CardActions>
