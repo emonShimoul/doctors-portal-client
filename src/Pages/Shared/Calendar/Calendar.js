@@ -5,26 +5,23 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
-const isWeekend = (date) => {
-    const day = date.day();
-  
-    return day === 0 || day === 6;
-  };
 
-const Calendar = () => {
-    const [value, setValue] = React.useState(dayjs());
-    
+const Calendar = ({date, setDate}) => {
+    // const [date, setDate] = React.useState(dayjs());
+    // console.log(date.date);
+    // console.log(date.setDate);
+    // const setdate = date.setDate;
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
         <StaticDatePicker
             displayStaticWrapperAs="desktop"
-            value={value}
+            value={date.date}
             onChange={(newValue) => {
-            setValue(newValue);
+                date.setDate(newValue);
             }}
             renderInput={(params) => <TextField {...params} />}
         />
-    </LocalizationProvider>
+        </LocalizationProvider>
     );
 };
 

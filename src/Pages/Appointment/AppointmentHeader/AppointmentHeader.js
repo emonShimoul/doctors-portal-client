@@ -3,12 +3,15 @@ import React from 'react';
 import chair from '../../../images/chair.png';
 import Calendar from '../../Shared/Calendar/Calendar';
 
-const AppointmentHeader = () => {
+const AppointmentHeader = (date, setDate) => {
+    // const [date, setDate] = React.useState(dayjs());
+    // console.log(date.setDate);
+    // console.log(setDate);
     return (
         <Container>
             <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
-                    <Calendar></Calendar>
+                    <Calendar date={date} setDate={setDate}></Calendar>
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{width:'100%'}} src={chair} alt="" />
