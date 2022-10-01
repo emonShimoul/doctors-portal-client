@@ -17,8 +17,8 @@ const style = {
   p: 4,
 };
 
-const BookingModal = ({openBooking, handleBookingClose}) => {
-    
+const BookingModal = ({openBooking, handleBookingClose, booking}) => {
+    const {name, time} = booking;
     return (
         <Modal
         aria-labelledby="transition-modal-title"
@@ -34,10 +34,10 @@ const BookingModal = ({openBooking, handleBookingClose}) => {
         <Fade in={openBooking}>
           <Box sx={style}>
             <Typography id="transition-modal-title" variant="h6" component="h2">
-              Text in a modal
+              {name}
             </Typography>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              {time}
             </Typography>
           </Box>
         </Fade>
