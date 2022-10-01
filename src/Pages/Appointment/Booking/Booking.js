@@ -11,6 +11,12 @@ const Booking = ({booking}) => {
             <Typography variant="h5" gutterBottom>
                 {name}
             </Typography>
+            <Typography variant="h6" gutterBottom>
+                {time}
+            </Typography>
+            <Typography variant="caption" display="block" gutterBottom>
+                {space} SPACES AVAILABLE
+            </Typography>
             </Paper>  
         </Grid>
     );
