@@ -1,4 +1,4 @@
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import React from 'react';
 import Booking from '../Booking/Booking';
 
@@ -69,7 +69,7 @@ const AvailableAppointment = ({date}) => {
     const dt = date.$d;
     return (
         <Container>
-            <h2>Available Appointment {dt.toString()}</h2>
+            <Typography variant='h5' sx={{ color: 'info.main', my: 3 }}>Available Appointment {dt.toString()}</Typography>
             <Grid container spacing={2}>
                 {
                     bookings.map(booking => <Booking
