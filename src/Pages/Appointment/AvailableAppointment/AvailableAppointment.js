@@ -1,5 +1,6 @@
 import { Container, Grid } from '@mui/material';
 import React from 'react';
+import Booking from '../Booking/Booking';
 
 const bookings = [
     {
@@ -70,7 +71,12 @@ const AvailableAppointment = ({date}) => {
         <Container>
             <h2>Available Appointment {dt.toString()}</h2>
             <Grid container spacing={2}>
-                
+                {
+                    bookings.map(booking => <Booking
+                    key={booking.id}
+                    booking={booking}
+                    ></Booking>)
+                }
             </Grid>
         </Container>
     );
