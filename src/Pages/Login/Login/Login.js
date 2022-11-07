@@ -1,12 +1,17 @@
 import { Container, Grid, Typography, TextField, Button } from '@mui/material';
 import React from 'react';
+import { useState } from 'react';
 import login from '../../../images/login.png'
 
 const Login = () => {
+    const [loginData, setLoginData] = useState({});
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
          console.log(field, value);
+         const newLoginData = {...loginData};
+         newLoginData[field] = value;
+         setLoginData(newLoginData);
     }
     const handleLoginSubmit = e => {
         alert("Hello")
