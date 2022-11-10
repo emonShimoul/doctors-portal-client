@@ -6,16 +6,21 @@ import login from '../../../images/login.png'
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
+
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
          console.log(field, value);
          const newLoginData = {...loginData};
          newLoginData[field] = value;
+         console.log(newLoginData);
          setLoginData(newLoginData);
     }
     const handleLoginSubmit = e => {
-        alert("Hello")
+        if(loginData.password !== loginData.password2){
+            alert("Your password didn't match");
+            return;
+        }
         e.preventDefault();
     }
     return (
@@ -23,7 +28,7 @@ const Register = () => {
             <Grid container spacing={2}>
                 <Grid item sx={{mt: 8}} xs={12} md={6}>
                 <Typography variant="body1" gutterBottom>
-                    Login
+                    Register
                 </Typography>
                 <form onSubmit={handleLoginSubmit}>
                     <TextField
@@ -31,6 +36,7 @@ const Register = () => {
                         id="standard-basic"
                         label="Your Email"
                         name="email"
+                        type="email"
                         onChange={handleOnChange}
                         variant="standard" />
                     <TextField
