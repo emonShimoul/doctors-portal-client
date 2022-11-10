@@ -26,11 +26,13 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
-    const loginUser = (email, password) => {
+    const loginUser = (email, password, navigate, state) => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
+                const destination = state?.redirectTo?.pathname || '/';
+                navigate(destination);
                 setAuthError('');
             })
             .catch((error) => {

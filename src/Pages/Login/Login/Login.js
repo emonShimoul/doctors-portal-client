@@ -1,23 +1,26 @@
 import { Container, Grid, Typography, TextField, Button, CircularProgress, Alert } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import login from '../../../images/login.png'
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
     const { user, loginUser, isLoading, authError } = useAuth();
+    const navigate = useNavigate();
+    const { state } = useLocation();
+    // console.log(state);
+
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
-        console.log(field, value);
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData);
     }
     const handleLoginSubmit = e => {
-        loginUser(loginData.email, loginData.password);
+        loginUser(loginData.email, loginData.password, navigate, state);
         e.preventDefault();
     }
     return (
