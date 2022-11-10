@@ -11,6 +11,7 @@ import Appointment from './Pages/Appointment/Appointment/Appointment';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import ProtectedRoute from './Pages/Login/ProtectedRoute/ProtectedRoute';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route element={<Appointment />} path="/appointment"></Route>
+            <Route element={<ProtectedRoute><Appointment /></ProtectedRoute>} path="/appointment"></Route>
             <Route element={<Login />} path="/login"></Route>
             <Route element={<Register />} path="/register"></Route>
             <Route element={<Home />} path="/"></Route>
