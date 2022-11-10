@@ -1,4 +1,4 @@
-import { Container, Grid, Typography, TextField, Button } from '@mui/material';
+import { Container, Grid, Typography, TextField, Button, CircularProgress } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
@@ -8,7 +8,7 @@ import login from '../../../images/login.png'
 const Register = () => {
     const [loginData, setLoginData] = useState({});
 
-    const { registerUser } = useAuth();
+    const { registerUser, isLoading } = useAuth();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -34,7 +34,7 @@ const Register = () => {
                     <Typography variant="body1" gutterBottom>
                         Register
                     </Typography>
-                    <form onSubmit={handleLoginSubmit}>
+                    {!isLoading && <form onSubmit={handleLoginSubmit}>
                         <TextField
                             sx={{ width: '75%', m: 1 }}
                             id="standard-basic"
@@ -65,7 +65,8 @@ const Register = () => {
                             style={{ textDecoration: 'none' }}
                             to="/login"><Button variant="text">Already Registered?? Please Login</Button>
                         </NavLink>
-                    </form>
+                    </form>}
+                    {isLoading && <CircularProgress />}
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{ width: '100%' }} src={login} alt="" />
