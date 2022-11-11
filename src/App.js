@@ -12,6 +12,7 @@ import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import ProtectedRoute from './Pages/Login/ProtectedRoute/ProtectedRoute';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<ProtectedRoute><Appointment /></ProtectedRoute>} path="/appointment"></Route>
+            <Route element={<ProtectedRoute><Dashboard /></ProtectedRoute>} path="/dashboard"></Route>
             <Route element={<Login />} path="/login"></Route>
             <Route element={<Register />} path="/register"></Route>
             <Route element={<Home />} path="/"></Route>
