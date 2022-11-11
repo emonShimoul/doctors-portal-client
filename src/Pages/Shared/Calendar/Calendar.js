@@ -5,17 +5,19 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
 
-const Calendar = ({date, setDate}) => {
+const Calendar = ({ date, setDate }) => {
+
+    console.log(date);
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <StaticDatePicker
-            displayStaticWrapperAs="desktop"
-            value={date.date}
-            onChange={(newValue) => {
-                date.setDate(newValue);
-            }}
-            renderInput={(params) => <TextField {...params} />}
-        />
+            <StaticDatePicker
+                displayStaticWrapperAs="desktop"
+                value={date.date}
+                onChange={(newValue) => {
+                    setDate(newValue);
+                }}
+                renderInput={(params) => <TextField {...params} />}
+            />
         </LocalizationProvider>
     );
 };

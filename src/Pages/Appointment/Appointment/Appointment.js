@@ -7,11 +7,11 @@ import AvailableAppointment from '../AvailableAppointment/AvailableAppointment';
 const Appointment = () => {
     const [date, setDate] = React.useState(dayjs());
     console.log(date);
-    console.log(setDate);
+    // console.log(setDate);
     return (
         <div>
             <Navigation></Navigation>
-            <AppointmentHeader  date={date} setDate={setDate}></AppointmentHeader>
+            <AppointmentHeader date={date} setDate={setDate}></AppointmentHeader>
             <AvailableAppointment date={date}></AvailableAppointment>
         </div>
     );
