@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
+import { useState } from 'react';
 
 const style = {
   position: 'absolute',
@@ -23,10 +24,29 @@ const style = {
 const BookingModal = ({ openBooking, handleBookingClose, booking, date }) => {
   const { name, time } = booking;
   const { user } = useAuth();
-  const handleBookingSubmit = e => {
-    alert('Submitting');
+  const initialInfo = { patientName: user.displayName, email: user.email, phone: '' }
 
-    // collect data and send to the server
+  const [bookingInfo, setBookingInfo] = useState(initialInfo);
+
+  const handleOnBlur = e => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newInfo = { ...bookingInfo };
+    newInfo[field] = value;
+    console.log(newInfo);
+    setBookingInfo(newInfo);
+  }
+
+  const handleBookingSubmit = e => {
+    // collect data
+    const appointment = {
+      ...bookingInfo,
+      time,
+      serviceName: name,
+      date: date.$d.toLocaleDateString()
+    }
+    // send to the server
+    console.log(appointment);
 
     handleBookingClose();
     e.preventDefault();
@@ -59,18 +79,24 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date }) => {
             <TextField
               sx={{ width: '90%', m: 1 }}
               id="outlined-size-small"
+              name="patientName"
+              onBlur={handleOnBlur}
               defaultValue={user.displayName}
               size="small"
             />
             <TextField
               sx={{ width: '90%', m: 1 }}
               id="outlined-size-small"
+              name="email"
+              onBlur={handleOnBlur}
               defaultValue={user.email}
               size="small"
             />
             <TextField
               sx={{ width: '90%', m: 1 }}
               id="outlined-size-small"
+              name="phone"
+              onBlur={handleOnBlur}
               defaultValue="Phone Number"
               size="small"
             />

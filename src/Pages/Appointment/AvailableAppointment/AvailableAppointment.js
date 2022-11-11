@@ -67,7 +67,7 @@ const bookings = [
 
 const AvailableAppointment = ({ date }) => {
     const dt = date.$d;
-    console.log(dt);
+    // console.log(dt);
     return (
         <Container>
             <Typography variant='h5' sx={{ color: 'info.main', my: 3 }}>Available Appointment {dt.toDateString()}</Typography>

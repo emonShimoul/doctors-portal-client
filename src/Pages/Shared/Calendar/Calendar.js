@@ -6,8 +6,7 @@ import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
 
 const Calendar = ({ date, setDate }) => {
-
-    console.log(date);
+    // console.log(date);
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <StaticDatePicker
