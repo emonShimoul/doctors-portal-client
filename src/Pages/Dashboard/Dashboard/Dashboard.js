@@ -16,6 +16,11 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Grid } from '@mui/material';
+import Calendar from '../../Shared/Calendar/Calendar';
+
+import dayjs from 'dayjs';
+import Appointments from '../Appointments/Appointments';
 
 const drawerWidth = 200;
 
@@ -47,7 +52,7 @@ function Dashboard(props) {
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
-
+    const [date, setDate] = React.useState(dayjs());
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -111,7 +116,14 @@ function Dashboard(props) {
             >
                 <Toolbar />
                 <Typography paragraph>
-                    Contents goes here...
+                    <Grid container spacing={2}>
+                        <Grid item xs={8}>
+                            <Calendar date={date} setDate={setDate}></Calendar>
+                        </Grid>
+                        <Grid item xs={4}>
+                            <Appointments></Appointments>
+                        </Grid>
+                    </Grid>
                 </Typography>
             </Box>
         </Box>
