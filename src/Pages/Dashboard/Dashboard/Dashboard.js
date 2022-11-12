@@ -18,12 +18,14 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import { Link, Outlet } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const { admin } = useAuth();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -36,8 +38,10 @@ function Dashboard(props) {
             <nav>
                 <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
                 <Link to="/dashboard"><Button color="inherit">Dashboard</Button></Link>
-                <Link to="makeAdmin"><Button color="inherit">Make Admin</Button></Link>
-                <Link to="addDoctor"><Button color="inherit">Add Doctor</Button></Link>
+                {admin && <Box>
+                    <Link to="makeAdmin"><Button color="inherit">Make Admin</Button></Link>
+                    <Link to="addDoctor"><Button color="inherit">Add Doctor</Button></Link>
+                </Box>}
             </nav>
 
 
