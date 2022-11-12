@@ -16,22 +16,14 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Button, Grid } from '@mui/material';
-import Calendar from '../../Shared/Calendar/Calendar';
-
-import dayjs from 'dayjs';
-import Appointments from '../Appointments/Appointments';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
+import { Link, Outlet } from 'react-router-dom';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    // const [date, setDate] = React.useState(dayjs());
-    const [date, setDate] = useState(new Date());
-    console.log(date);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -41,7 +33,14 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
+            <nav>
+                <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
+                <Link to="/dashboard"><Button color="inherit">Dashboard</Button></Link>
+                <Link to="makeAdmin"><Button color="inherit">Make Admin</Button></Link>
+                <Link to="addDoctor"><Button color="inherit">Add Doctor</Button></Link>
+            </nav>
+
+
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
                     <ListItem key={text} disablePadding>
@@ -120,17 +119,9 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                <Typography paragraph>
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} sm={5}>
-                            <Calendar date={date} setDate={setDate}></Calendar>
-                        </Grid>
-                        <Grid item xs={12} sm={7}>
-                            <Appointments date={date}></Appointments>
-                        </Grid>
-                    </Grid>
-                </Typography>
+                <Outlet></Outlet>
             </Box>
+
         </Box>
     );
 }

@@ -13,6 +13,9 @@ import Register from './Pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import ProtectedRoute from './Pages/Login/ProtectedRoute/ProtectedRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import AddDoctor from './Pages/Dashboard/AddDoctor/AddDoctor';
+import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
 
 function App() {
   return (
@@ -21,7 +24,11 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<ProtectedRoute><Appointment /></ProtectedRoute>} path="/appointment"></Route>
-            <Route element={<ProtectedRoute><Dashboard /></ProtectedRoute>} path="/dashboard"></Route>
+            <Route element={<ProtectedRoute><Dashboard></Dashboard></ProtectedRoute>} path="/dashboard">
+              <Route index element={<DashboardHome />}></Route>
+              <Route path='makeAdmin' element={<MakeAdmin />} />
+              <Route path='addDoctor' element={<AddDoctor />} />
+            </Route>
             <Route element={<Login />} path="/login"></Route>
             <Route element={<Register />} path="/register"></Route>
             <Route element={<Home />} path="/"></Route>

@@ -62,7 +62,10 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
+
+                // save user to database
                 saveUser(user.email, user.displayName, 'PUT');
+
                 setAuthError('');
                 const destination = state?.redirectTo?.pathname || '/';
                 navigate(destination);
@@ -94,6 +97,7 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     }
 
+    // save user to the database both by direct registration and by using google account registration
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
         fetch('http://localhost:5000/users', {
