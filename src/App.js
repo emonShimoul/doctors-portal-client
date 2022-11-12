@@ -16,6 +16,7 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import AddDoctor from './Pages/Dashboard/AddDoctor/AddDoctor';
 import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
+import AdminRoute from './Pages/Login/AdminRoute/AdminRoute';
 
 function App() {
   return (
@@ -24,10 +25,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<ProtectedRoute><Appointment /></ProtectedRoute>} path="/appointment"></Route>
-            <Route element={<ProtectedRoute><Dashboard></Dashboard></ProtectedRoute>} path="/dashboard">
+            <Route element={<ProtectedRoute><Dashboard /></ProtectedRoute>} path="/dashboard">
               <Route index element={<DashboardHome />}></Route>
-              <Route path='makeAdmin' element={<MakeAdmin />} />
-              <Route path='addDoctor' element={<AddDoctor />} />
+              <Route path='makeAdmin' element={<AdminRoute><MakeAdmin /></AdminRoute>} />
+              <Route path='addDoctor' element={<AdminRoute><AddDoctor /></AdminRoute>} />
             </Route>
             <Route element={<Login />} path="/login"></Route>
             <Route element={<Register />} path="/register"></Route>
