@@ -68,11 +68,10 @@ const bookings = [
 
 const AvailableAppointment = ({ date }) => {
     const [bookingSuccess, setBookingSuccess] = useState(false);
-    const dt = date.$d;
-    // console.log(dt);
+    // console.log(date.toLocaleDateString());
     return (
         <Container>
-            <Typography variant='h5' sx={{ color: 'info.main', my: 3 }}>Available Appointment {dt.toDateString()}</Typography>
+            <Typography variant='h5' sx={{ color: 'info.main', my: 3 }}>Available Appointment {date.toLocaleDateString()}</Typography>
             {bookingSuccess && <Alert severity="success">Booking Successfully!!</Alert>}
             <Grid container spacing={2}>
                 {

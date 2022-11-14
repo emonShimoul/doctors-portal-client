@@ -43,7 +43,7 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date, setBooki
       ...bookingInfo,
       time,
       serviceName: name,
-      date: date.$d.toLocaleDateString()
+      date: date.toLocaleDateString()
     }
     // send to the server
     // console.log(appointment);
@@ -119,7 +119,7 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date, setBooki
               disabled
               sx={{ width: '90%', m: 1 }}
               id="outlined-size-small"
-              defaultValue={date.$d.toDateString()}
+              defaultValue={date.toLocaleDateString()}
               size="small"
             />
             <Button type="submit" variant="contained">Submit</Button>
