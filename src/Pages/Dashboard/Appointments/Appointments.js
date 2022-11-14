@@ -12,9 +12,6 @@ import Paper from '@mui/material/Paper';
 const Appointments = ({ date, setDate }) => {
     const { user, token } = useAuth();
     const [appointments, setAppointments] = useState([]);
-    // const finalDate = date.toLocaleDateString();
-    // console.log(new Date().toLocaleDateString());
-    // console.log(date);
 
     useEffect(() => {
         const url = `https://stormy-fjord-28728.herokuapp.com/appointments?email=${user.email}&date=${date.toLocaleDateString()}`
