@@ -13,7 +13,7 @@ const Calendar = ({ date, setDate }) => {
                 displayStaticWrapperAs="desktop"
                 value={date}
                 onChange={(newValue) => {
-                    setDate(newValue);
+                    setDate(newValue.$d);
                 }}
                 renderInput={(params) => <TextField {...params} />}
             />

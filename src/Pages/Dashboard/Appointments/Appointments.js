@@ -9,12 +9,15 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const Appointments = ({ date }) => {
+const Appointments = ({ date, setDate }) => {
     const { user, token } = useAuth();
     const [appointments, setAppointments] = useState([]);
+    // const finalDate = date.toLocaleDateString();
+    // console.log(new Date().toLocaleDateString());
+    // console.log(date);
 
     useEffect(() => {
-        const url = `http://localhost:5000/appointments?email=${user.email}&date=${date}`
+        const url = `https://stormy-fjord-28728.herokuapp.com/appointments?email=${user.email}&date=${date.toLocaleDateString()}`
         fetch(url, {
             headers: {
                 'authorization': `Bearer ${token}`
