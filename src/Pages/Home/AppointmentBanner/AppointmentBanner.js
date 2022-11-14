@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import doctor from '../../../images/doctor.png';
 import appointmentbg from '../../../images/appointment-bg.png';
 import { Button, Typography } from '@mui/material';
-import { Container, display } from '@mui/system';
+import { Container } from '@mui/system';
 
 const appointmentBanner = {
     background: `url(${appointmentbg})`,

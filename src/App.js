@@ -1,10 +1,8 @@
 import './App.css';
 import {
-  createBrowserRouter,
-  RouterProvider,
   Route,
   BrowserRouter,
-  Routes,
+  Routes
 } from "react-router-dom";
 import Home from './Pages/Home/Home/Home';
 import Appointment from './Pages/Appointment/Appointment/Appointment';
