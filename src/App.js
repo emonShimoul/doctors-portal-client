@@ -15,6 +15,7 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import AddDoctor from './Pages/Dashboard/AddDoctor/AddDoctor';
 import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
 import AdminRoute from './Pages/Login/AdminRoute/AdminRoute';
+import Payment from './Pages/Dashboard/Payment/Payment';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route index element={<DashboardHome />}></Route>
               <Route path='makeAdmin' element={<AdminRoute><MakeAdmin /></AdminRoute>} />
               <Route path='addDoctor' element={<AdminRoute><AddDoctor /></AdminRoute>} />
+              <Route path="payment/:appointmentId" element={<Payment />}></Route>
             </Route>
             <Route element={<Login />} path="/login"></Route>
             <Route element={<Register />} path="/register"></Route>
