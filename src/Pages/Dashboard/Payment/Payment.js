@@ -11,7 +11,7 @@ const Payment = () => {
     }, [appointmentId])
     return (
         <div>
-            <h2>Please Pay for: {appointmentId}</h2>
+            <h2>Please Pay for: {appointment.patientName} for {appointment.serviceName}</h2>
             <h4>Pay: ${appointment.price}</h4>
         </div>
     );
