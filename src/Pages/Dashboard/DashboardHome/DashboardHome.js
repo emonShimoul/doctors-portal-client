@@ -8,6 +8,7 @@ const DashboardHome = () => {
 
     const [date, setDate] = useState(new Date());
     // console.log(date.toLocaleDateString());
+
     return (
         <Grid container spacing={2}>
             <Grid item xs={12} sm={5}>

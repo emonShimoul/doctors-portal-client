@@ -10,7 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 
-const Appointments = ({ date, setDate }) => {
+const Appointments = ({ date }) => {
     const { user, token } = useAuth();
     const [appointments, setAppointments] = useState([]);
 
