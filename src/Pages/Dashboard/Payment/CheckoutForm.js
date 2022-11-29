@@ -2,6 +2,8 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React from 'react';
 
 const CheckoutForm = ({ appointment }) => {
+    const { price } = appointment;
+    // console.log(price);
     const stripe = useStripe();
     const elements = useElements();
     const handleSubmit = async (e) => {
@@ -33,7 +35,7 @@ const CheckoutForm = ({ appointment }) => {
                 }}
             />
             <button type="submit" disabled={!stripe}>
-                Pay
+                Pay ${price}
             </button>
         </form>
     );
