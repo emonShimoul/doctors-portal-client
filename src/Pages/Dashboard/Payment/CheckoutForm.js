@@ -4,7 +4,6 @@ import { useState } from 'react';
 
 const CheckoutForm = ({ appointment }) => {
     const { price } = appointment;
-    // console.log(price);
     const stripe = useStripe();
     const elements = useElements();
 
