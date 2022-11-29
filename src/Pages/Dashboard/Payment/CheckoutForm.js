@@ -57,6 +57,9 @@ const CheckoutForm = ({ appointment }) => {
                     Pay ${price}
                 </button>
             </form>
+            {
+                error && <p style={{ color: 'red' }}>{error}</p>
+            }
         </div>
     );
 };
