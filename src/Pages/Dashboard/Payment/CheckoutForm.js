@@ -1,7 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React from 'react';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
     const handleSubmit = async (e) => {
