@@ -34,4 +34,6 @@ export default Payment;
 2. set publishable key
 3. Elements
 4. Checkout Form
+-------------------
+5. Create payment method
 */

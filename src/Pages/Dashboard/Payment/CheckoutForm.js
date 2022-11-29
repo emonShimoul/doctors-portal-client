@@ -6,7 +6,9 @@ const CheckoutForm = ({ appointment }) => {
     // console.log(price);
     const stripe = useStripe();
     const elements = useElements();
+
     const handleSubmit = async (e) => {
+        e.preventDefault();
         if (!stripe || !elements) {
             return;
         }
@@ -14,8 +16,19 @@ const CheckoutForm = ({ appointment }) => {
         if (card === null) {
             return;
         }
-        e.preventDefault();
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: 'card',
+            card
+        });
+
+        if (error) {
+            console.log(error);
+        }
+        else {
+            console.log(paymentMethod);
+        }
     }
+
     return (
         <form onSubmit={handleSubmit}>
             <CardElement
