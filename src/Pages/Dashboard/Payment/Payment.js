@@ -28,3 +28,10 @@ const Payment = () => {
 };
 
 export default Payment;
+
+/*
+1. Install stripe and stripe-react
+2. set publishable key
+3. Elements
+4. Checkout Form
+*/
