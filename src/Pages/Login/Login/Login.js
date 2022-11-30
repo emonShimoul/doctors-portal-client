@@ -18,10 +18,12 @@ const Login = () => {
         newLoginData[field] = value;
         setLoginData(newLoginData);
     }
+
     const handleLoginSubmit = e => {
         loginUser(loginData.email, loginData.password, navigate, state);
         e.preventDefault();
     }
+
     const handleGoogleSignIn = () => {
         signInWithGoogle(navigate, state);
     }
