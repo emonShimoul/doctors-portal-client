@@ -3,14 +3,13 @@ import React from 'react';
 import { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import login from '../../../images/login.png'
+import login from '../../../images/login.png';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
     const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
     const navigate = useNavigate();
     const { state } = useLocation();
-    // console.log(state);
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -23,7 +22,6 @@ const Login = () => {
         loginUser(loginData.email, loginData.password, navigate, state);
         e.preventDefault();
     }
-
     const handleGoogleSignIn = () => {
         signInWithGoogle(navigate, state);
     }
