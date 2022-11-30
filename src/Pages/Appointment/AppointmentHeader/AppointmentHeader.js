@@ -4,9 +4,6 @@ import chair from '../../../images/chair.png';
 import Calendar from '../../Shared/Calendar/Calendar';
 
 const AppointmentHeader = ({ date, setDate }) => {
-    // const [date, setDate] = React.useState(dayjs());
-    // console.log(date.setDate);
-    // console.log(setDate);
     return (
         <Container>
             <Grid container spacing={2}>
