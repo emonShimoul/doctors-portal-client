@@ -18,28 +18,28 @@ const AppointmentBanner = () => {
         <Box style={appointmentBanner} sx={{ flexGrow: 1 }}>
             <Container>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} md={6} sx={{display: 'flex', justifyContent: 'flex-start'}}>
+                    <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'flex-start' }}>
                         <img
-                        style={{width: 400, marginTop: '-115px'}}
-                        src={doctor} alt="" />
+                            style={{ width: 400, marginTop: '-115px' }}
+                            src={doctor} alt="" />
                     </Grid>
                     <Grid item xs={12} md={6} sx={{
-                            display: 'flex', 
-                            justifyContent: 'flex-start',
-                            alignItems: 'center',
-                            textAlign: 'left'
-                        }}>
+                        display: 'flex',
+                        justifyContent: 'flex-start',
+                        alignItems: 'center',
+                        textAlign: 'left'
+                    }}>
                         <Box>
-                            <Typography variant='h6' sx={{mb: 3}} style={{color: '#5CE7ED'}}>
+                            <Typography variant='h6' sx={{ mb: 3 }} style={{ color: '#5CE7ED' }}>
                                 Appointment
                             </Typography>
-                            <Typography variant='h4' style={{color: 'white'}}>
+                            <Typography variant='h4' style={{ color: 'white' }}>
                                 Make an Appointment Today
                             </Typography>
-                            <Typography variant='h6' sx={{my: 3}} style={{color: 'white', fontSize: 14, fontWeight: 300}}>
+                            <Typography variant='h6' sx={{ my: 3 }} style={{ color: 'white', fontSize: 14, fontWeight: 300 }}>
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente exercitationem, voluptate incidunt enim fuga nobis obcaecati quisquam vitae natus, doloribus similique doloremque quibusdam eaque impedit asperiores expedita soluta? Voluptates, modi.
                             </Typography>
-                            <Button variant="contained" sx={{mb: 3}} style={{backgroundColor: '#5CE7ED'}}>Learn More</Button>
+                            <Button variant="contained" sx={{ mb: 3 }} style={{ backgroundColor: '#5CE7ED' }}>Learn More</Button>
                         </Box>
                     </Grid>
                 </Grid>
