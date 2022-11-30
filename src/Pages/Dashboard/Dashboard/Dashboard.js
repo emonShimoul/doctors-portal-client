@@ -39,7 +39,6 @@ function Dashboard(props) {
             <nav>
                 <Link to="/appointment"><Button color="inherit">Appointment</Button></Link>
                 <Link to="/dashboard"><Button color="inherit">Dashboard</Button></Link>
-                {/* <Link to="payment"><Button color="inherit">Payment</Button></Link> */}
                 {admin && <Box>
                     <Link to="makeAdmin"><Button color="inherit">Make Admin</Button></Link>
                     <Link to="addDoctor"><Button color="inherit">Add Doctor</Button></Link>
