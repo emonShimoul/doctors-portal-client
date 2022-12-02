@@ -36,4 +36,8 @@ export default Payment;
 4. Checkout Form
 -------------------
 5. Create payment method
+6. Server: create payment intent api
+7. Load client secret
+8. ConfirmCard payment
+9. Handle user error
 */
