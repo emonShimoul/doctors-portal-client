@@ -1,13 +1,16 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import useAuth from '../../../hooks/useAuth';
 
 const CheckoutForm = ({ appointment }) => {
-    const { price } = appointment;
+    const { price, patientName } = appointment;
     const stripe = useStripe();
     const elements = useElements();
+    const { user } = useAuth();
 
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const [clientSecret, setClientSecret] = useState('');
 
@@ -40,10 +43,35 @@ const CheckoutForm = ({ appointment }) => {
         if (error) {
             console.log(error);
             setError(error.message);
+            setSuccess('');
         }
         else {
             setError('');
             console.log(paymentMethod);
+        }
+
+        // payment intent
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: patientName,
+                        email: user.email
+                    },
+                },
+            },
+        );
+
+        if (intentError) {
+            setError(intentError.message);
+            setSuccess('');
+        }
+        else {
+            setError('');
+            setSuccess('Your payment processed successfully!!')
+            console.log(paymentIntent);
         }
     }
 
@@ -72,6 +100,9 @@ const CheckoutForm = ({ appointment }) => {
             </form>
             {
                 error && <p style={{ color: 'red' }}>{error}</p>
+            }
+            {
+                error && <p style={{ color: 'green' }}>{success}</p>
             }
         </div>
     );

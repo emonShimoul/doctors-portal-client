@@ -94,7 +94,7 @@ const useFirebase = () => {
     }, [auth])
 
     useEffect(() => {
-        fetch(`https://stormy-fjord-28728.herokuapp.com/users/${user.email}`)
+        fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -111,7 +111,7 @@ const useFirebase = () => {
     // save user to the database both by direct registration and by using google account registration
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://stormy-fjord-28728.herokuapp.com/users', {
+        fetch('http://localhost:5000/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

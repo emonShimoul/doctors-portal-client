@@ -47,7 +47,7 @@ const BookingModal = ({ openBooking, handleBookingClose, booking, date, setBooki
       date: date.toLocaleDateString()
     }
     // send to the server
-    fetch('https://stormy-fjord-28728.herokuapp.com/appointments', {
+    fetch('http://localhost:5000/appointments', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
