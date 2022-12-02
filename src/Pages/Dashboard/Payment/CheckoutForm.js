@@ -1,3 +1,4 @@
+import { CircularProgress } from '@mui/material';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
@@ -11,6 +12,7 @@ const CheckoutForm = ({ appointment }) => {
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+    const [processing, setProcessing] = useState(false);
 
     const [clientSecret, setClientSecret] = useState('');
 
@@ -35,6 +37,7 @@ const CheckoutForm = ({ appointment }) => {
         if (card === null) {
             return;
         }
+        setProcessing(true);
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card
@@ -72,6 +75,7 @@ const CheckoutForm = ({ appointment }) => {
             setError('');
             setSuccess('Your payment processed successfully!!')
             console.log(paymentIntent);
+            setProcessing(false);
         }
     }
 
@@ -94,9 +98,9 @@ const CheckoutForm = ({ appointment }) => {
                         },
                     }}
                 />
-                <button type="submit" disabled={!stripe}>
+                {processing ? <CircularProgress></CircularProgress> : <button type="submit" disabled={!stripe}>
                     Pay ${price}
-                </button>
+                </button>}
             </form>
             {
                 error && <p style={{ color: 'red' }}>{error}</p>
