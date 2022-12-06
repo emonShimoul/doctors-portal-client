@@ -9,11 +9,9 @@ const CheckoutForm = ({ appointment }) => {
     const stripe = useStripe();
     const elements = useElements();
     const { user } = useAuth();
-
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [processing, setProcessing] = useState(false);
-
     const [clientSecret, setClientSecret] = useState('');
 
     useEffect(() => {
