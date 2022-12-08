@@ -9,6 +9,14 @@ const AddDoctor = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        if (!image) {
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('image', image);
     }
     return (
         <div>
