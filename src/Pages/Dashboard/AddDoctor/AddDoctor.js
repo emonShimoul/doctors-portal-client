@@ -6,10 +6,14 @@ const AddDoctor = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [image, setImage] = useState(null);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+    }
     return (
         <div>
             <h2>Add A Doctor</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <TextField
                     sx={{ width: '50%' }}
                     label="Name"
@@ -28,7 +32,7 @@ const AddDoctor = () => {
                 <Input
                     accept="image/*"
                     type="file"
-                    onChange={e => console.log(e.target.files[0])}
+                    onChange={e => setImage(e.target.files[0])}
                 />
                 <br />
                 <Button variant="contained" type='sumbit'>
