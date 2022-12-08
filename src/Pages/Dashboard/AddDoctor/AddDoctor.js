@@ -5,6 +5,7 @@ import { useState } from 'react';
 const AddDoctor = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [image, setImage] = useState(null);
     return (
         <div>
             <h2>Add A Doctor</h2>
@@ -26,7 +27,8 @@ const AddDoctor = () => {
                 <br />
                 <Input
                     accept="image/*"
-                    multiple type="file"
+                    type="file"
+                    onChange={e => console.log(e.target.files[0])}
                 />
                 <br />
                 <Button variant="contained" type='sumbit'>
