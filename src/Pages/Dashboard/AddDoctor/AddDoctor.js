@@ -11,6 +11,13 @@ const AddDoctor = () => {
                     label="Name"
                     required
                     variant="standard" />
+                <br />
+                <TextField
+                    sx={{ width: '50%' }}
+                    label="Email"
+                    type="email"
+                    required
+                    variant="standard" />
             </form>
         </div>
     );
