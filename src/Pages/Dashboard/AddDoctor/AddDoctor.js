@@ -6,6 +6,7 @@ const AddDoctor = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [image, setImage] = useState(null);
+    const [success, setSuccess] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -26,6 +27,7 @@ const AddDoctor = () => {
             .then((data) => {
                 // console.log('Success:', data);
                 if (data.insertedId) {
+                    setSuccess('doctor added successfully!!');
                     console.log('doctor added successfully!!');
                 }
             })
@@ -59,9 +61,10 @@ const AddDoctor = () => {
                 />
                 <br />
                 <Button variant="contained" type='sumbit'>
-                    Upload
+                    Add Doctor
                 </Button>
             </form>
+            {success && <p style={{ color: 'green' }}>{success}</p>}
         </div>
     );
 };
