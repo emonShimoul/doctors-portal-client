@@ -25,7 +25,6 @@ const AddDoctor = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                // console.log('Success:', data);
                 if (data.insertedId) {
                     setSuccess('doctor added successfully!!');
                     console.log('doctor added successfully!!');
