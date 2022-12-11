@@ -26,7 +26,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const { admin } = useAuth();
-    console.log(admin);
+    // console.log(admin);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -44,7 +44,6 @@ function Dashboard(props) {
                     <Link to="addDoctor"><Button color="inherit">Add Doctor</Button></Link>
                 </Box>}
             </nav>
-
 
             <List>
                 {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
