@@ -124,7 +124,6 @@ function Dashboard(props) {
                 <Toolbar />
                 <Outlet></Outlet>
             </Box>
-
         </Box>
     );
 }
