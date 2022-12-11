@@ -9,9 +9,11 @@ const ProtectedRoute = ({
 }) => {
     const { user, isLoading } = useAuth();
     const location = useLocation();
+
     if (isLoading) {
         return <CircularProgress></CircularProgress>
     }
+
     if (!user?.email) {
         return <Navigate to={redirectPath} replace state={{ redirectTo: location }} />;
     }
