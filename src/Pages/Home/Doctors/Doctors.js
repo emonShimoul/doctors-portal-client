@@ -11,6 +11,7 @@ const Doctors = () => {
             .then(res => res.json())
             .then(data => setDoctors(data))
     }, [])
+
     return (
         <div>
             <h2>Our Doctors: {doctors.length}</h2>
