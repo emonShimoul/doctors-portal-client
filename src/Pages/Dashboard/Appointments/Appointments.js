@@ -37,6 +37,7 @@ const Appointments = ({ date }) => {
                             <TableCell align="right">Action</TableCell>
                         </TableRow>
                     </TableHead>
+
                     <TableBody>
                         {appointments.map((row) => (
                             <TableRow
