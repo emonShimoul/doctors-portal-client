@@ -5,7 +5,6 @@ import Calendar from '../../Shared/Calendar/Calendar';
 import Appointments from '../Appointments/Appointments';
 
 const DashboardHome = () => {
-
     const [date, setDate] = useState(new Date());
     // console.log(date.toLocaleDateString());
 
